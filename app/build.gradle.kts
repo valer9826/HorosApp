@@ -64,6 +64,13 @@ dependencies {
     implementation("androidx.camera:camera-view:${cameraVersion}")
     implementation("androidx.camera:camera-extensions:${cameraVersion}")
 
+    //Timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
+
+    //Okhttp3
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+
     //DaggerHilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")
