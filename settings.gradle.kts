@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "HorosApp"
 include(":app")
 include(":data")
+include(":domain")
