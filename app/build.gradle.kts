@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+    kotlin {
+        jvmToolchain(17)
+    }
     buildFeatures {
         viewBinding = true
         buildConfig = true
