@@ -21,6 +21,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = ".test"
+            isDebuggable = true
+            isMinifyEnabled = false
+        }
+        create("qa") {
+            applicationIdSuffix = ".test"
+            isDebuggable = false
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFile("r8-rules.pro")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -41,6 +53,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
         buildConfig = true
     }
 }
