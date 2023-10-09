@@ -71,7 +71,6 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-
     fun provideGlobalEventClient(
         @Named("loggingInterceptor") loggingInterceptor: Interceptor
     ): OkHttpClient = OkHttpClient().newBuilder()
