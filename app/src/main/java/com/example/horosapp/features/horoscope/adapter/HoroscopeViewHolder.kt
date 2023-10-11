@@ -1,13 +1,10 @@
 package com.example.horosapp.features.horoscope.adapter
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.horosapp.databinding.ItemHoroscopeBinding
 import com.horosapp.domain.horoscope.model.HoroscopeInfo
 
-class HoroscopeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    private val binding = ItemHoroscopeBinding.bind(view)
+class HoroscopeViewHolder(private val binding: ItemHoroscopeBinding ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(horoscopeInfo: HoroscopeInfo){
         val context = binding.tvHoroscope.context
