@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".features.horoscope.HoroscopeFragment" >
+    tools:context=".features.horoscope.HoroscopeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-
         android:id="@+id/rvHoroscope"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_horoscope" />
 
 </FrameLayout>
