@@ -8,7 +8,10 @@ import com.example.horosapp.R
 import com.example.horosapp.databinding.ItemHoroscopeBinding
 import com.horosapp.domain.horoscope.model.HoroscopeInfo
 
-class HoroscopeAdapter(private var horoscopeList: List<HoroscopeInfo> = emptyList()) :
+class HoroscopeAdapter(
+    private var horoscopeList: List<HoroscopeInfo> = emptyList(),
+    private val onItemSelected: (HoroscopeInfo)-> Unit
+    ) :
     RecyclerView.Adapter<HoroscopeViewHolder>() {
 
     fun updateList(newHoroscopeList: List<HoroscopeInfo>) {
@@ -31,7 +34,7 @@ class HoroscopeAdapter(private var horoscopeList: List<HoroscopeInfo> = emptyLis
     }
 
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
-        holder.bind(horoscopeList[position])
+        holder.bind(horoscopeList[position], onItemSelected)
     }
 
     class HoroscopeDiffUtil(
