@@ -21,9 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/app_name"
-            android:textColor="@color/secondary"
-            android:fontFamily="@font/dancing"
-            android:textSize="28sp" />
+            style="@style/Title" />
 
     </FrameLayout>
 
