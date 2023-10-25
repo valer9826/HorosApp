@@ -1,6 +1,6 @@
 package com.example.horosapp.data.di
 
-import com.example.horosapp.data.remote.horoscopemodule.HoroscopeApi
+import com.example.horosapp.data.remote.horoscopemodule.HoroscopeServiceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,8 +12,8 @@ import retrofit2.Retrofit
 class ApiProvider {
 
     @Provides
-    fun provideHoroscopeApi(retrofit: Retrofit): HoroscopeApi {
-        return retrofit.create(HoroscopeApi::class.java)
+    fun provideHoroscopeApi(retrofit: Retrofit): HoroscopeServiceApi {
+        return retrofit.create(HoroscopeServiceApi::class.java)
     }
 
 }
