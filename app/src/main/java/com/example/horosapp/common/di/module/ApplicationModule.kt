@@ -20,7 +20,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 const val TIMEOUT: Long = 4L
-
+const val BASE_URL = "https://newastro.vercel.app/"
 @Module
 @InstallIn(SingletonComponent::class)
 object ApplicationModule {
@@ -87,6 +87,7 @@ object ApplicationModule {
         client: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(gsonConverterFactory)
             .build()
