@@ -16,9 +16,11 @@ import com.example.horosapp.databinding.FragmentHoroscopeBinding
 import com.example.horosapp.databinding.FragmentHoroscopeDetailBinding
 import com.example.horosapp.domain.model.HoroscopeModel
 import com.example.horosapp.domain.model.HoroscopeModel.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HoroscopeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentHoroscopeDetailBinding
@@ -35,21 +37,8 @@ class HoroscopeDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvTitle.text = when(args.type){
-            Aries -> "Aries"
-            Taurus -> "Tauro"
-            Gemini -> "Geminis"
-            Cancer -> TODO()
-            Leo -> TODO()
-            Virgo -> TODO()
-            Libra -> TODO()
-            Scorpio -> TODO()
-            Sagittarius -> TODO()
-            Capricorn -> TODO()
-            Aquarius -> TODO()
-            Pisces -> TODO()
-        }
         initUi()
+        viewModel.getHoroscope(args.type.name)
     }
 
     private fun initUi() {
@@ -63,23 +52,25 @@ class HoroscopeDetailFragment : Fragment() {
                     when(it){
                         is HoroscopeDetailUiState.Error -> errorState()
                         HoroscopeDetailUiState.Loading -> loadingState()
-                        is HoroscopeDetailUiState.Success -> successState()
+                        is HoroscopeDetailUiState.Success -> successState(it)
                     }
                 }
             }
         }
     }
 
-    private fun successState() {
-
+    private fun loadingState() {
+        binding.pb.isVisible = true
     }
 
     private fun errorState() {
-
+        binding.pb.isVisible = false
     }
 
-    private fun loadingState() {
-        binding.pb.isVisible = true
+    private fun successState(state: HoroscopeDetailUiState.Success) {
+        binding.pb.isVisible = false
+        binding.tvTitle.text = state.sign
+        binding.tvBody.text = state.prediction
     }
 
 }

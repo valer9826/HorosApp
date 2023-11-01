@@ -6,6 +6,6 @@ sealed class HoroscopeDetailUiState {
 
     data class Error(val error: String) : HoroscopeDetailUiState()
 
-    data class Success(val data: String) : HoroscopeDetailUiState()
+    data class Success(val prediction: String, val sign: String) : HoroscopeDetailUiState()
 
 }
