@@ -1,6 +1,6 @@
 package com.example.horosapp.data.remote.horoscopemodule.response
 
-import com.example.horosapp.domain.features.horoscope.HoroscopePredictionModel
+import com.example.horosapp.domain.features.horoscope.model.HoroscopePredictionModel
 import com.google.gson.annotations.SerializedName
 
 data class HoroscopePredictionResponse(
