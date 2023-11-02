@@ -42,6 +42,10 @@ object ApplicationModule {
                 level = HttpLoggingInterceptor.Level.HEADERS
                 level = HttpLoggingInterceptor.Level.BODY
             }
+        } else {
+            interceptor.apply {
+                level = HttpLoggingInterceptor.Level.NONE
+            }
         }
         return interceptor
     }
