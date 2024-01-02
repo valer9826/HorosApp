@@ -3,6 +3,7 @@ package com.example.horosapp.common.di.module
 import android.content.Context
 import com.example.horosapp.BuildConfig
 import com.example.horosapp.HorosApp
+import com.example.horosapp.common.interceptors.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -76,12 +77,14 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideGlobalEventClient(
-        @Named("loggingInterceptor") loggingInterceptor: Interceptor
+        @Named("loggingInterceptor") loggingInterceptor: Interceptor,
+        authInterceptor: AuthInterceptor
     ): OkHttpClient = OkHttpClient().newBuilder()
         .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
+        .addInterceptor(authInterceptor)
         .build()
 
     @Provides
